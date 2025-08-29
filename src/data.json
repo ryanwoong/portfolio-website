@@ -1,0 +1,63 @@
+{
+    "projects": [
+        {
+            "title": "PetPals | 2nd Place",
+            "img": "",
+            "description": "Hack the Change 2024 in a team of 5. We built a anonmyous online platform designed to help users reflect on their emotions and connect with others in a supporting and uplifting environment. Users were able to create, view and edit their posts. While also adding comments to other users posts. We also implemented a game system where users could take care of a pet and earn coins whenever performing certain actions, users could buy cosmetics and other pets. An LLM was also used to ensure that comments and posts did not contain any harmful content, aswell as classify users posts based on a set of tones, themes and topics.",
+            "link": "https://devpost.com/software/petpals-9jb2s1",
+            "skills": ["Express", "Firebase", "JavaScript", "Mantine", "Node.js", "React"]
+        },
+        {
+            "title": "Car Catalog",
+            "img": "",
+            "description": "Visual and interactive website to display a collection of model cars and their specifications with JavaScript, React, Node.js and MongoDB, utilizing a REST API.",
+            "link": "https://github.com/BananaGuy18/car-catalog",
+            "skills": ["ChakraUI", "Express", "JavaScript", "MongoDB", "Node.js", "React"]
+        },
+        {
+            "title": "Social Discord Bot",
+            "img": "",
+            "description": "A bot made for Discord servers that listens for social media updates such as Tweets, going live on Twitch and Youtube posts. It can also post custom messages at a certain time of the day. There is also a voting system where users can react to the message to cast their votes.",
+            "link": "https://github.com/ryanwoong/Social-Discord-Bot",
+            "skills": ["Discord.js", "JavaScript", "MongoDB", "Node.js"]
+        },
+        {
+            "title": "Music Application",
+            "img": "",
+            "description": "This application was developed as part of the International Baccalaureate program’s Internal Assessment. It allows general users to listen to, comment, and vote on songs. Administrator accounts are able to add, remove, and edit songs on the application.",
+            "link": "https://github.com/ryanwoong/Music-App-IA",
+            "skills": ["Dart", "Firebase", "Flutter"]
+        },
+        {
+            "title": "Portfolio Website",
+            "img": "",
+            "description": "This site was made to display my projects and a short about me! (you're looking right at it!).",
+            "link": "",
+            "skills": ["TailwindCSS", "Vue", "Typescript"]
+        }
+
+    ],
+    "experiences": [
+        {
+            "position": "Jr. Product Developer Intern",
+            "company": "Nude Solutions",
+            "years": "Jan 2025 — Present",
+            "description": "Here I developed and implemented many production ready functions and applications in C# and using .NET. I was responsible for creating many complex Javascript rules that were for use in the company's proprietary rules and rating engine. I also learned and utlized the DDD principles to maintain clean software architecture, improve code quality, and enchance cross-team collaboration.",
+            "skills": [".NET", "C#", "Javascript"]
+        },
+        {
+            "position": "Software Developer",
+            "company": "Toysoft",
+            "years": "July 2023 — Sept 2024",
+            "description": "At Toysoft I developed and implemented a Kotlin application and web application. The project was aimed to connect two clients (web application and Android phone) through WebRTC and stream the Android device's internal (and external, if connected) camera. I also implemented the server that handled the WebRTC handshake. The server also offloaded the incoming camera feed to a RTSP server.",
+            "skills": ["CSS", "HTML", "Javascript", "Kotlin"]
+        },
+        {
+            "position": "Freelance Developer",
+            "company": "",
+            "years": "2020 — Present",
+            "description": "Throughout the years I have been fortune to apply my skills and knowledge for clients. I have helped developed custom software solutions and help automate various processes. From creating custom tailored websites, Discord bots and scripts for these clients I have enjoyed working and creating such solutions.",
+            "skills": ["CSS", "Discord.js", "HTML", "Javascript", "React"]
+        }
+    ]
+}

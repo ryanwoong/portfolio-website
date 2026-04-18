@@ -94,8 +94,7 @@ onUnmounted(() => {
       >
         <p class="mb-4 text-black">
           Hey! My name is
-          <span class="text-cyan-600 font-bold">Ryan</span>
-          , a
+          <span class="text-cyan-600 font-bold">Ryan</span>, a
           <span class="text-cyan-600 font-bold">student</span>
           and
           <span class="text-cyan-600 font-bold">passionate developer</span>
@@ -112,12 +111,9 @@ onUnmounted(() => {
         </p>
         <p class="mb-4 text-black">
           As a child the world of technology always fascinated me, fast-forward to the present, and I now continue to strive to explore and learn everything I can. I have been fortunate enough to be able to own some amazing pieces of technology throughout my life which has allowed me to explore many different opportunites. From
-          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>
-          ,
-          <span class="text-cyan-600 font-bold">VR Technology</span>
-          ,
-          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>
-          , I have dove into the endless possibilities of technology, constantly expanding my technology stack.
+          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>,
+          <span class="text-cyan-600 font-bold">VR Technology</span>,
+          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>, I have dove into the endless possibilities of technology, constantly expanding my technology stack.
         </p>
       </section>
 

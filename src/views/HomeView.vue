@@ -75,8 +75,8 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="md:flex md:h-screen text-gray-300"
-    :style="{ backgroundColor: '#f4f4f6' }"
+    class="md:flex md:h-screen text-black"
+    :style="{ backgroundColor: '#e6e6e9' }"
   >
     <Navbar
       :active-section="activeSection"
@@ -90,33 +90,33 @@ onUnmounted(() => {
       <section
         id="about"
         class="p-6 mb-2 md:mb-4 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl"
-        :style="{ backgroundColor: '#e6e6e9' }"
+        :style="{ backgroundColor: '#ffffff' }"
       >
-        <p class="mb-4 text-gray-800">
+        <p class="mb-4 text-black">
           Hey! My name is
-          <span class="text-sage font-bold">Ryan</span>
+          <span class="text-cyan-600 font-bold">Ryan</span>
           , a
-          <span class="text-sage font-bold">student</span>
+          <span class="text-cyan-600 font-bold">student</span>
           and
-          <span class="text-sage font-bold">passionate developer</span>
+          <span class="text-cyan-600 font-bold">passionate developer</span>
           with the desire to expand my knowledge and learn new things.
         </p>
-        <p class="mb-4 text-gray-800">
+        <p class="mb-4 text-black">
           I'm currently a third year student attending the
-          <span class="text-sage font-bold">University of Calgary</span>
+          <span class="text-cyan-600 font-bold">University of Calgary</span>
           pursing a major in
-          <span class="text-sage font-bold">Computer Science</span>
+          <span class="text-cyan-600 font-bold">Computer Science</span>
           and minoring in
-          <span class="text-sage font-bold">Management and Society</span>
+          <span class="text-cyan-600 font-bold">Management and Society</span>
           .
         </p>
-        <p class="mb-4 text-gray-800">
+        <p class="mb-4 text-black">
           As a child the world of technology always fascinated me, fast-forward to the present, and I now continue to strive to explore and learn everything I can. I have been fortunate enough to be able to own some amazing pieces of technology throughout my life which has allowed me to explore many different opportunites. From
-          <span class="text-sage font-bold">Raspberry Pi's</span>
+          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>
           ,
-          <span class="text-sage font-bold">VR Technology</span>
+          <span class="text-cyan-600 font-bold">VR Technology</span>
           ,
-          <span class="text-sage font-bold">AI & Machine Learning</span>
+          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>
           , I have dove into the endless possibilities of technology, constantly expanding my technology stack.
         </p>
       </section>

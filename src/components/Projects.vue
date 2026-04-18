@@ -8,8 +8,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-6 rounded-lg backdrop-blur-md shadow-lg max-w-3xl" :style="{backgroundColor: '#e6e6e9'}">
-    <h2 class="text-3xl font-bold mb-2 text-gray-700">Projects & Hackathons</h2>
+  <div class="p-6 rounded-lg backdrop-blur-md shadow-lg max-w-3xl" :style="{backgroundColor: '#ffffff'}">
+    <h2 class="text-3xl font-bold mb-2 text-black">Projects & Hackathons</h2>
     <Project 
       v-for="(project, index) in projects" 
       :key="index" 

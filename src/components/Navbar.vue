@@ -70,75 +70,35 @@ const toggleMobileMenu = () => {
 
 <template>
   <nav class="w-100 p-12 md:flex md:flex-col md:mt-20 md:ml-[15%]">
-    <div class="sticky top-12">
-      <!-- Profile photo (desktop only) -->
-      <img
-        src="@/assets/me.jpg"
-        alt="Ryan"
-        class="hidden md:block w-60 h-60 object-cover rounded-md mb-4"
-      />
-      <!-- Typing animation for Ryan Wong -->
-      <h1 class="flex text-4xl font-bold mb-2 text-gray-700">
-        <span class="text-sage-100 mr-1">></span>
-        {{ typingText }}
-        <!-- Show full text on small screens -->
-      </h1>
-      <p class="text-lg mb-4 text-gray-600">Fullstack Developer & Student</p>
-      <div class="flex items-center gap-2 mb-14">
-        <p class="text-sm text-gray-600">I love bananas.</p>
-        <!-- <img src="../assets/banana.png" class="inline-block h-10 w-auto"> -->
+    <div class="sticky top-12 flex flex-col gap-4">
+      <!-- Section 1: Profile -->
+      <div class="bg-white rounded-lg p-4">
+        <img
+          src="@/assets/me.jpg"
+          alt="Ryan"
+          class="hidden md:block w-60 h-60 object-cover rounded-md mb-4 mx-auto"
+        />
+        <h1 class="flex text-4xl font-bold mb-2 text-black">
+          <span class="text-cyan-600 mr-1">></span>
+          {{ typingText }}
+        </h1>
+        <p class="text-lg mb-2 text-black">Fullstack Developer & Student</p>
+        <p class="text-sm text-black">I love bananas.</p>
       </div>
 
-      <div class="relative">
-        <!-- Mobile menu container -->
-        <div class="md:hidden flex justify-between items-center mb-4">
-          <!-- Mobile menu toggle button -->
+      <!-- Section 2: Menu -->
+      <div class="bg-white rounded-lg p-4">
+        <!-- Mobile toggle -->
+        <div class="md:hidden flex items-center mb-4">
           <button
             @click="toggleMobileMenu"
-            class="text-sage hover:text-sage-100 transition-colors"
+            class="text-cyan-600 hover:text-cyan-600 transition-colors"
           >
             <i :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-2xl']"></i>
           </button>
-
-          <!-- Social links (visible on mobile) -->
-          <div class="flex space-x-4">
-            <a
-              href="https://github.com/ryanwoong"
-              target="_blank"
-              class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-            >
-              <span class="sr-only">GitHub</span>
-              <i class="pi pi-github text-3xl"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ryanwongyyc/"
-              target="_blank"
-              class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-            >
-              <span class="sr-only">LinkedIn</span>
-              <i class="pi pi-linkedin text-3xl"></i>
-            </a>
-            <a
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-            >
-              <span class="sr-only">Twitter</span>
-              <i class="pi pi-twitter text-3xl"></i>
-            </a>
-            <a
-              href="https://youtube.com/@yourchannel"
-              target="_blank"
-              class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-            >
-              <span class="sr-only">YouTube</span>
-              <i class="pi pi-youtube text-3xl"></i>
-            </a>
-          </div>
         </div>
 
-        <!-- Navigation links -->
-        <ul :class="['space-y-2 mb-6 md:mb-12', { hidden: !isMobileMenuOpen, 'md:block': true }]">
+        <ul :class="['space-y-2', { hidden: !isMobileMenuOpen, 'md:block': true }]">
           <li
             v-for="section in sections"
             :key="section"
@@ -147,7 +107,7 @@ const toggleMobileMenu = () => {
               <RouterLink
                 to="/resume"
                 target="_blank"
-                class="text-sage hover:text-sage-100 transition-colors text-sm tracking-widest font-bold"
+                class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
               >
                 {{ section }}
                 <span class="pi pi-external-link text-xs ml-1"></span>
@@ -157,7 +117,7 @@ const toggleMobileMenu = () => {
               <a
                 href="https://blog.ryanwong.ca"
                 target="_blank"
-                class="text-sage hover:text-sage-100 transition-colors text-sm tracking-widest font-bold"
+                class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
               >
                 {{ section }}
               </a>
@@ -169,52 +129,52 @@ const toggleMobileMenu = () => {
                   toggleMobileMenu();
                 "
                 :class="{
-                  'text-sage': activeSection !== sectionIds[section],
-                  'text-gray-800': activeSection === sectionIds[section],
+                  'text-cyan-600': activeSection !== sectionIds[section],
+                  'text-black': activeSection === sectionIds[section],
                 }"
-                class="hover:text-sage-100 transition-colors text-sm tracking-widest font-bold cursor-pointer"
+                class="hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold cursor-pointer"
               >
                 {{ section }}
               </a>
             </template>
           </li>
         </ul>
+      </div>
 
-        <!-- Social links (hidden on mobile, visible on larger screens) -->
-        <div class="hidden md:flex space-x-4">
-          <a
-            href="https://github.com/ryanwoong"
-            target="_blank"
-            class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-          >
-            <span class="sr-only">GitHub</span>
-            <i class="pi pi-github text-3xl"></i>
-          </a>
-          <a
-            href="https://twitter.com/ryxnwxng"
-            target="_blank"
-            class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-          >
-            <span class="sr-only">Twitter</span>
-            <i class="pi pi-twitter text-3xl"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ryanwongyyc/"
-            target="_blank"
-            class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-          >
-            <span class="sr-only">LinkedIn</span>
-            <i class="pi pi-linkedin text-3xl"></i>
-          </a>
-          <a
-            href="https://youtube.com/@ryanwoong"
-            target="_blank"
-            class="text-gray-600 hover:text-sage-100 transition-all duration-300"
-          >
-            <span class="sr-only">YouTube</span>
-            <i class="pi pi-youtube text-3xl"></i>
-          </a>
-        </div>
+      <!-- Section 3: Socials -->
+      <div class="bg-white rounded-lg p-4 flex justify-center space-x-4">
+        <a
+          href="https://github.com/ryanwoong"
+          target="_blank"
+          class="text-black hover:text-cyan-600 transition-all duration-300"
+        >
+          <span class="sr-only">GitHub</span>
+          <i class="pi pi-github text-3xl"></i>
+        </a>
+        <a
+          href="https://twitter.com/ryxnwxng"
+          target="_blank"
+          class="text-black hover:text-cyan-600 transition-all duration-300"
+        >
+          <span class="sr-only">Twitter</span>
+          <i class="pi pi-twitter text-3xl"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/ryanwongyyc/"
+          target="_blank"
+          class="text-black hover:text-cyan-600 transition-all duration-300"
+        >
+          <span class="sr-only">LinkedIn</span>
+          <i class="pi pi-linkedin text-3xl"></i>
+        </a>
+        <a
+          href="https://youtube.com/@ryanwoong"
+          target="_blank"
+          class="text-black hover:text-cyan-600 transition-all duration-300"
+        >
+          <span class="sr-only">YouTube</span>
+          <i class="pi pi-youtube text-3xl"></i>
+        </a>
       </div>
     </div>
   </nav>

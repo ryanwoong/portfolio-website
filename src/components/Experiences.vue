@@ -8,8 +8,8 @@
 </script>
 
 <template>
-    <div class="p-6 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl" :style="{backgroundColor: '#e6e6e9'}">
-        <h2 class="text-3xl font-bold mb-8 text-gray-700">Experience</h2>
+    <div class="p-6 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl" :style="{backgroundColor: '#ffffff'}">
+        <h2 class="text-3xl font-bold mb-8 text-black">Experience</h2>
         <Experience 
           v-for="(experience, index) in experiences" 
           :key="index" 

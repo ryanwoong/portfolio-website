@@ -23,16 +23,16 @@ const props = defineProps({
             }"
         >
             <!-- Title will also hover when the entire box is hovered -->
-            <h3 class="text-xl font-semibold mb-2 text-sage transition-all duration-300 group-hover:text-sage-100 hover:text-sage-100">
+            <h3 class="text-xl font-semibold mb-2 text-cyan-600 transition-all duration-300 group-hover:text-cyan-600 hover:text-cyan-600">
                 {{ title }}
                 <li class="pi pi-external-link text-xs ml-2"></li>
             </h3>
-            <p class="text-gray-800 max-w-2xl mb-4">{{ description }}</p>
+            <p class="text-black max-w-2xl mb-4">{{ description }}</p>
             <div class="flex flex-wrap gap-2">
                 <span
                     v-for="skill in skills"
                     :key="skill"
-                    class="bg-sage text-gray-100 px-3 py-1 rounded-full text-sm"
+                    class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
                 >
                     {{ skill }}
                 </span>
@@ -45,13 +45,13 @@ const props = defineProps({
         v-else
         class="border border-transparent rounded-lg mb-2 transition-all duration-300 max-w-3xl md:p-6 pb-6"
     >
-        <h3 class="text-xl font-semibold mb-2 text-sage">{{ title }}</h3>
-        <p class="text-gray-800 max-w-2xl mb-4">{{ description }}</p>
+        <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
+        <p class="text-black max-w-2xl mb-4">{{ description }}</p>
         <div class="flex flex-wrap gap-2">
             <span
                 v-for="skill in skills"
                 :key="skill"
-                class="bg-sage text-gray-100 px-3 py-1 rounded-full text-sm"
+                class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
             >
                 {{ skill }}
             </span>

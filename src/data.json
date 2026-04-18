@@ -7,7 +7,7 @@
             "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "skills": [
                 "Electron",
-                "Typescript"
+                "TypeScript"
             ]
         },
         {
@@ -25,17 +25,13 @@
             ]
         },
         {
-            "title": "Car Catalog",
+            "title": "Blog Website",
             "img": "",
-            "description": "Visual and interactive website to display a collection of model cars and their specifications with JavaScript, React, Node.js and MongoDB, utilizing a REST API.",
-            "link": "https://github.com/BananaGuy18/car-catalog",
+            "description": "A modern, responsive blog template built with Next.js, MDX, and Tailwind CSS. This template includes a dark mode toggle, tag-based navigation, collections, search functionality, and more. I use this currently for my own blog!",
+            "link": "https://github.com/rjwlabs/blog-template",
             "skills": [
-                "ChakraUI",
-                "Express",
-                "JavaScript",
-                "MongoDB",
-                "Node.js",
-                "React"
+                "TypeScript",
+                "Next.js"
             ]
         },
         {
@@ -51,17 +47,6 @@
             ]
         },
         {
-            "title": "Music Application",
-            "img": "",
-            "description": "This application was developed as part of the International Baccalaureate program’s Internal Assessment. It allows general users to listen to, comment, and vote on songs. Administrator accounts are able to add, remove, and edit songs on the application.",
-            "link": "https://github.com/ryanwoong/Music-App-IA",
-            "skills": [
-                "Dart",
-                "Firebase",
-                "Flutter"
-            ]
-        },
-        {
             "title": "Portfolio Website",
             "img": "",
             "description": "This site was made to display my projects and a short about me! (you're looking right at it!).",
@@ -69,7 +54,7 @@
             "skills": [
                 "TailwindCSS",
                 "Vue",
-                "Typescript"
+                "TypeScript"
             ]
         }
     ],

@@ -88,14 +88,32 @@ const toggleMobileMenu = () => {
 
       <!-- Section 2: Menu -->
       <div class="bg-white rounded-lg p-4">
-        <!-- Mobile toggle -->
-        <div class="md:hidden flex items-center mb-4">
+        <!-- Mobile toggle with inline socials -->
+        <div class="md:hidden flex items-center justify-between mb-4">
           <button
             @click="toggleMobileMenu"
-            class="text-cyan-600 hover:text-cyan-600 transition-colors"
+            class="flex items-center text-cyan-600 hover:text-cyan-600 transition-colors"
           >
-            <i :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-2xl']"></i>
+            <i :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-3xl', 'leading-none']"></i>
           </button>
+          <div class="flex items-center space-x-5">
+            <a href="https://github.com/ryanwoong" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+              <span class="sr-only">GitHub</span>
+              <i class="pi pi-github text-3xl leading-none"></i>
+            </a>
+            <a href="https://twitter.com/ryxnwxng" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+              <span class="sr-only">Twitter</span>
+              <i class="pi pi-twitter text-3xl leading-none"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ryanwongyyc/" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+              <span class="sr-only">LinkedIn</span>
+              <i class="pi pi-linkedin text-3xl leading-none"></i>
+            </a>
+            <a href="https://youtube.com/@ryanwoong" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+              <span class="sr-only">YouTube</span>
+              <i class="pi pi-youtube text-3xl leading-none"></i>
+            </a>
+          </div>
         </div>
 
         <ul :class="['space-y-2', { hidden: !isMobileMenuOpen, 'md:block': true }]">
@@ -141,8 +159,8 @@ const toggleMobileMenu = () => {
         </ul>
       </div>
 
-      <!-- Section 3: Socials -->
-      <div class="bg-white rounded-lg p-4 flex justify-center space-x-4">
+      <!-- Section 3: Socials (desktop only) -->
+      <div class="hidden md:flex bg-white rounded-lg p-4 justify-center space-x-4">
         <a
           href="https://github.com/ryanwoong"
           target="_blank"

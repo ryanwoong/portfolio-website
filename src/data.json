@@ -1,6 +1,16 @@
 {
     "projects": [
         {
+            "title": "rymo",
+            "img": "",
+            "description": "A local-first, infinite board-based knowledge canvas inspired by Miro. Feature rich with markdown, image, LaTeX support with many more.",
+            "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
+            "skills": [
+                "Electron",
+                "Typescript"
+            ]
+        },
+        {
             "title": "PetPals | 2nd Place",
             "img": "",
             "description": "Hack the Change 2024 in a team of 5. We built a anonmyous online platform designed to help users reflect on their emotions and connect with others in a supporting and uplifting environment. Users were able to create, view and edit their posts. While also adding comments to other users posts. We also implemented a game system where users could take care of a pet and earn coins whenever performing certain actions, users could buy cosmetics and other pets. An LLM was also used to ensure that comments and posts did not contain any harmful content, aswell as classify users posts based on a set of tones, themes and topics.",
@@ -65,14 +75,27 @@
     ],
     "experiences": [
         {
-            "position": "Jr. Product Developer Intern",
+            "position": "Software Developer Intern",
             "company": "Modular Solutions",
-            "years": "Jan 2025 — Present",
-            "description": "Here I developed and implemented many production ready functions and applications in C# and using .NET. I was responsible for creating many complex Javascript rules that were for use in the company's proprietary rules and rating engine. I also learned and utlized the DDD principles to maintain clean software architecture, improve code quality, and enchance cross-team collaboration.",
+            "years": "June 2025 — Present",
+            "description": "Here I developed and implemented many features across the backend in C#/.Net and frontend in React. I created a sandbox feature for the company's proprietary rules and rating engine. This eliminated an entire time consuming process which allowed our product team and clients to work more efficiently.",
             "skills": [
                 ".NET",
                 "C#",
-                "Javascript"
+                "Javascript",
+                "React"
+            ]
+        },
+        {
+            "position": "Jr. Product Developer Intern",
+            "company": "Modular Solutions",
+            "years": "Jan 2025 — June 2025",
+            "description": "I was responsible for creating many complex Javascript rules that were for use in the company's proprietary rules and rating engine. I also created a documentation website for the company based on the company's internal API (guides and reference).",
+            "skills": [
+                ".NET",
+                "C#",
+                "Javascript",
+                "React"
             ]
         },
         {

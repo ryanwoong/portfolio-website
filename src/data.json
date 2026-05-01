@@ -3,7 +3,7 @@
         {
             "title": "rymo",
             "img": "",
-            "description": "A local-first, infinite board-based knowledge canvas inspired by Miro. Feature rich with markdown, image, LaTeX support with many more.",
+            "description": "A local-first knowledge canvas inspired by Miro for building, arranging, and connecting notes, links, and media — fully offline. Uses a custom JSON encoder/decoder for portable, interoperable boards stored entirely on disk.",
             "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "skills": [
                 "Electron",
@@ -11,9 +11,9 @@
             ]
         },
         {
-            "title": "PetPals | 2nd Place",
+            "title": "Hack The Change 2024 | 2nd Place",
             "img": "",
-            "description": "Hack the Change 2024 in a team of 5. We built a anonmyous online platform designed to help users reflect on their emotions and connect with others in a supporting and uplifting environment. Users were able to create, view and edit their posts. While also adding comments to other users posts. We also implemented a game system where users could take care of a pet and earn coins whenever performing certain actions, users could buy cosmetics and other pets. An LLM was also used to ensure that comments and posts did not contain any harmful content, aswell as classify users posts based on a set of tones, themes and topics.",
+            "description": "2nd place at Hack The Change 2024 among 50+ teams. Built a mental health app with an LLM that classifies user journals by tone and theme, plus a content moderation filter to keep the community safe.",
             "link": "https://devpost.com/software/petpals-9jb2s1",
             "skills": [
                 "Express",
@@ -63,19 +63,20 @@
             "position": "Software Developer Intern",
             "company": "Modular Solutions",
             "years": "June 2025 — Present",
-            "description": "Here I developed and implemented many features across the backend in C#/.Net and frontend in React. I created a sandbox feature for the company's proprietary rules and rating engine. This eliminated an entire time consuming process which allowed our product team and clients to work more efficiently.",
+            "description": "Worked on C#/.NET backend and React frontend, full stack development. Built a JavaScript rule sandbox that replaced a time-consuming process. Also built a Python + LLM knowledge base that accelerated rule development ~5x and enabled teams to share accurate technical docs with clients.",
             "skills": [
                 ".NET",
                 "C#",
                 "Javascript",
+                "Python",
                 "React"
             ]
         },
         {
             "position": "Jr. Product Developer Intern",
             "company": "Modular Solutions",
-            "years": "Jan 2025 — June 2025",
-            "description": "I was responsible for creating many complex Javascript rules that were for use in the company's proprietary rules and rating engine. I also created a documentation website for the company based on the company's internal API (guides and reference).",
+            "years": "Jan. 2025 — June 2025",
+            "description": "Delivered 30+ complex insurance rules in the company's proprietary JavaScript rules engine, increasing client product development speed by ~50%. Also built an internal documentation website covering API guides and reference material.",
             "skills": [
                 ".NET",
                 "C#",
@@ -84,22 +85,10 @@
             ]
         },
         {
-            "position": "Software Developer",
-            "company": "Toysoft",
-            "years": "July 2023 — Sept 2024",
-            "description": "At Toysoft I developed and implemented a Kotlin application and web application. The project was aimed to connect two clients (web application and Android phone) through WebRTC and stream the Android device's internal (and external, if connected) camera. I also implemented the server that handled the WebRTC handshake. The server also offloaded the incoming camera feed to a RTSP server.",
-            "skills": [
-                "CSS",
-                "HTML",
-                "Javascript",
-                "Kotlin"
-            ]
-        },
-        {
             "position": "Freelance Developer",
-            "company": "",
-            "years": "2020 — Present",
-            "description": "Throughout the years I have been fortune to apply my skills and knowledge for clients. I have helped developed custom software solutions and help automate various processes. From creating custom tailored websites, Discord bots and scripts for these clients I have enjoyed working and creating such solutions.",
+            "company": "Self Employed",
+            "years": "Jan. 2020 — Present",
+            "description": "Developed custom websites, Discord bots, and scripts for 5+ clients serving 10,000+ users. Squashed 50+ critical bugs contributing to a 30% improvement in user satisfaction, and automated workflows reducing manual processing time by ~75%.",
             "skills": [
                 "CSS",
                 "Discord.js",
@@ -107,6 +96,59 @@
                 "Javascript",
                 "React"
             ]
+        },
+        {
+            "position": "Software Developer",
+            "company": "Toysoft",
+            "years": "July 2023 — Sept. 2024",
+            "description": "Architected a Kotlin mobile app GUI and built a Node.js backend to handle WebRTC peer-to-peer communication. Automated camera feed transmission to RTSP servers, eliminating 100% of manual media storage intervention.",
+            "skills": [
+                "CSS",
+                "HTML",
+                "Javascript",
+                "Kotlin",
+                "Node.js"
+            ]
         }
-    ]
+    ],
+    "skills": {
+        "languages": [
+            "C#",
+            "HTML / CSS",
+            "Java",
+            "JavaScript",
+            "Kotlin",
+            "Python",
+            "SQL",
+            "TypeScript"
+        ],
+        "frameworks": [
+            ".NET",
+            "Express.js",
+            "Flutter",
+            "Node.js",
+            "React",
+            "Vue"
+        ],
+        "developerTools": [
+            "Android Studio",
+            "AWS",
+            "Azure",
+            "Claude Code",
+            "Docker",
+            "Git/GitHub",
+            "Linux",
+            "OpenAI Codex",
+            "Ollama",
+            "Unsloth",
+            "vLLM",
+            "Local LLMs"
+        ],
+        "databases": [
+            "Firebase",
+            "MongoDB",
+            "MySQL",
+            "Postgres"
+        ]
+    }
 }

@@ -16,13 +16,11 @@ const sectionIds = {
   RESUME: "resume",
 };
 
-const languages = ["C#", "Dart", "HTML / CSS", "Java", "JavaScript", "Kotlin", "Python", "SQL", "TypeScript"];
-
-const technologiesFrameworks = [".NET", "Android Studio", "AWS", "Azure", "Docker", "Express.js", "Firebase", "Flutter", "Git/GitHub", "Linux", "MongoDB", "MySQL", "Node.js", "Postgres", "React", "Vue"];
+const { projects, experiences, skills } = jsonData;
+const { languages, frameworks, developerTools, databases } = skills;
 
 const activeSection = ref("about");
 const mainContent = ref(null);
-const { projects, experiences } = jsonData;
 
 const updateActiveSection = () => {
   if (!mainContent.value) return;
@@ -89,12 +87,13 @@ onUnmounted(() => {
     >
       <section
         id="about"
-        class="p-6 mb-2 md:mb-4 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl"
+        class="p-6 mb-6 md:mb-4 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl"
         :style="{ backgroundColor: '#ffffff' }"
       >
         <p class="mb-4 text-black">
           Hey! My name is
-          <span class="text-cyan-600 font-bold">Ryan</span>, a
+          <span class="text-cyan-600 font-bold">Ryan</span>
+          , a
           <span class="text-cyan-600 font-bold">student</span>
           and
           <span class="text-cyan-600 font-bold">passionate developer</span>
@@ -111,34 +110,39 @@ onUnmounted(() => {
         </p>
         <p class="mb-4 text-black">
           As a child the world of technology always fascinated me, fast-forward to the present, and I now continue to strive to explore and learn everything I can. I have been fortunate enough to be able to own some amazing pieces of technology throughout my life which has allowed me to explore many different opportunites. From
-          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>,
-          <span class="text-cyan-600 font-bold">VR Technology</span>,
-          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>, I have dove into the endless possibilities of technology, constantly expanding my technology stack.
+          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>
+          ,
+          <span class="text-cyan-600 font-bold">VR Technology</span>
+          ,
+          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>
+          , I have dove into the endless possibilities of technology, constantly expanding my technology stack.
         </p>
       </section>
 
       <section
+        id="skills"
+        class="mb-6 md:mb-4"
+      >
+        <Skills
+          :languages="languages"
+          :frameworks="frameworks"
+          :developerTools="developerTools"
+          :databases="databases"
+        />
+      </section>
+
+      <section
         id="experience"
-        class="mb-6 mt-6 md:mb-12"
+        class="mb-6 md:mb-4"
       >
         <Experiences :experiences="experiences" />
       </section>
 
       <section
         id="projects-hackathons"
-        class="mb-6 md:mb-12"
+        class="mb-6 md:mb-4"
       >
         <Projects :projects="projects" />
-      </section>
-
-      <section
-        id="skills"
-        class="mb-6 md:mb-12"
-      >
-        <Skills
-          :languages="languages"
-          :technologiesFrameworks="technologiesFrameworks"
-        />
       </section>
     </main>
   </div>

@@ -1,18 +1,18 @@
 <script setup>
-import { defineProps } from 'vue';
-import Project from './Project.vue';
+import { defineProps } from "vue";
+import Project from "./Project.vue";
 
 const props = defineProps({
-    projects: Array
+  projects: Array,
 });
 </script>
 
 <template>
-  <div class="p-6 rounded-lg backdrop-blur-md shadow-lg max-w-3xl" :style="{backgroundColor: '#ffffff'}">
-    <h2 class="text-3xl font-bold mb-2 text-black">Projects & Hackathons</h2>
-    <Project 
-      v-for="(project, index) in projects" 
-      :key="index" 
+  <div class="p-6 rounded-lg max-w-3xl">
+    <h2 class="text-3xl font-bold mb-8 text-black">Projects & Hackathons</h2>
+    <Project
+      v-for="(project, index) in projects"
+      :key="index"
       :title="project.title"
       :img="project.img"
       :description="project.description"

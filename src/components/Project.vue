@@ -1,60 +1,67 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps } from "vue";
 
 const props = defineProps({
-    title: String,
-    img: String,
-    description: String,
-    link: String,
-    skills: Array
+  title: String,
+  img: String,
+  description: String,
+  link: String,
+  skills: Array,
 });
 </script>
 
 <template>
-    <!-- When there is a link, wrap the entire box in an <a> -->
-    <a v-if="link !== ''" :href="link" target="_blank" class="block">
-        <div
-            :class="{
-                'border border-transparent rounded-lg max-w-3xl md:p-6 pb-6 transition-all duration-300': true,
-                'hover:bg-white/10 hover:backdrop-blur-md hover:shadow-lg cursor-pointer': link !== ''
-            }"
-            :style="{
-                transition: 'background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease',
-            }"
-        >
-            <!-- Title will also hover when the entire box is hovered -->
-            <h3 class="text-xl font-semibold mb-2 text-cyan-600 transition-all duration-300 group-hover:text-cyan-600 hover:text-cyan-600">
-                {{ title }}
-                <li class="pi pi-external-link text-xs ml-2"></li>
-            </h3>
-            <p class="text-black max-w-2xl mb-4">{{ description }}</p>
-            <div class="flex flex-wrap gap-2">
-                <span
-                    v-for="skill in skills"
-                    :key="skill"
-                    class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
-                >
-                    {{ skill }}
-                </span>
-            </div>
-        </div>
-    </a>
-
-    <!-- If there's no link, just display the box without any <a> tag -->
+  <!-- When there is a link, wrap the entire box in an <a> -->
+  <a
+    v-if="link !== ''"
+    :href="link"
+    target="_blank"
+    class="block"
+  >
     <div
-        v-else
-        class="border border-transparent rounded-lg mb-2 transition-all duration-300 max-w-3xl md:p-6 pb-6"
+      :class="{
+        'border border-transparent rounded-lg max-w-3xl md:p-6 pb-6 transition-all duration-300 mb-4 backdrop-blur-md shadow-lg': true,
+        'hover:opacity-80 cursor-pointer': link !== '',
+      }"
+      :style="{
+        backgroundColor: '#ffffff',
+        transition: 'opacity 0.3s ease, box-shadow 0.3s ease',
+      }"
     >
-        <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
-        <p class="text-black max-w-2xl mb-4">{{ description }}</p>
-        <div class="flex flex-wrap gap-2">
-            <span
-                v-for="skill in skills"
-                :key="skill"
-                class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
-            >
-                {{ skill }}
-            </span>
-        </div>
+      <!-- Title will also hover when the entire box is hovered -->
+      <h3 class="text-xl font-semibold mb-2 text-cyan-600 transition-all duration-300 group-hover:text-cyan-600 hover:text-cyan-600">
+        {{ title }}
+        <li class="pi pi-external-link text-xs ml-2"></li>
+      </h3>
+      <p class="text-black max-w-2xl mb-4">{{ description }}</p>
+      <div class="flex flex-wrap gap-2">
+        <span
+          v-for="skill in skills"
+          :key="skill"
+          class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
+        >
+          {{ skill }}
+        </span>
+      </div>
     </div>
+  </a>
+
+  <!-- If there's no link, just display the box without any <a> tag -->
+  <div
+    v-else
+    class="border border-transparent rounded-lg mb-4 transition-all duration-300 max-w-3xl md:p-6 pb-6 backdrop-blur-md shadow-lg"
+    :style="{ backgroundColor: '#ffffff' }"
+  >
+    <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
+    <p class="text-black max-w-2xl mb-4">{{ description }}</p>
+    <div class="flex flex-wrap gap-2">
+      <span
+        v-for="skill in skills"
+        :key="skill"
+        class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
+      >
+        {{ skill }}
+      </span>
+    </div>
+  </div>
 </template>

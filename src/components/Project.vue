@@ -20,7 +20,7 @@ const props = defineProps({
   >
     <div
       :class="{
-        'border border-transparent rounded-lg max-w-3xl md:p-6 pb-6 transition-all duration-300 mb-4 backdrop-blur-md shadow-lg': true,
+        'border border-transparent rounded-lg max-w-3xl p-6 transition-all duration-300 mb-4 backdrop-blur-md shadow-lg': true,
         'hover:opacity-80 cursor-pointer': link !== '',
       }"
       :style="{
@@ -49,7 +49,7 @@ const props = defineProps({
   <!-- If there's no link, just display the box without any <a> tag -->
   <div
     v-else
-    class="border border-transparent rounded-lg mb-4 transition-all duration-300 max-w-3xl md:p-6 pb-6 backdrop-blur-md shadow-lg"
+    class="border border-transparent rounded-lg mb-4 transition-all duration-300 max-w-3xl p-6 backdrop-blur-md shadow-lg"
     :style="{ backgroundColor: '#ffffff' }"
   >
     <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>

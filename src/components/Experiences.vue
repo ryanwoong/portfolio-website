@@ -13,6 +13,7 @@ const props = defineProps({
     <Experience
       v-for="(experience, index) in experiences"
       :key="index"
+      :delay="index * 80"
       :position="experience.position"
       :company="experience.company"
       :years="experience.years"

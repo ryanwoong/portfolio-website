@@ -15,6 +15,9 @@ const props = defineProps({
     <h2 class="text-3xl font-bold mb-8 text-black">Tech Stack</h2>
 
     <div
+      v-motion
+      :initial="{ opacity: 0, y: 32 }"
+      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 0, type: 'spring', stiffness: 220, damping: 24 } }"
       class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
       :style="{ backgroundColor: '#ffffff' }"
     >
@@ -29,6 +32,9 @@ const props = defineProps({
     </div>
 
     <div
+      v-motion
+      :initial="{ opacity: 0, y: 32 }"
+      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 80, type: 'spring', stiffness: 220, damping: 24 } }"
       class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
       :style="{ backgroundColor: '#ffffff' }"
     >
@@ -43,6 +49,9 @@ const props = defineProps({
     </div>
 
     <div
+      v-motion
+      :initial="{ opacity: 0, y: 32 }"
+      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 160, type: 'spring', stiffness: 220, damping: 24 } }"
       class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
       :style="{ backgroundColor: '#ffffff' }"
     >
@@ -57,6 +66,9 @@ const props = defineProps({
     </div>
 
     <div
+      v-motion
+      :initial="{ opacity: 0, y: 32 }"
+      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 240, type: 'spring', stiffness: 220, damping: 24 } }"
       class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent"
       :style="{ backgroundColor: '#ffffff' }"
     >

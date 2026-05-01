@@ -94,7 +94,13 @@ const toggleMobileMenu = () => {
             @click="toggleMobileMenu"
             class="flex items-center text-cyan-600 hover:text-cyan-600 transition-colors"
           >
-            <i :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-3xl', 'leading-none']"></i>
+            <i
+              :key="isMobileMenuOpen ? 'close' : 'open'"
+              :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-3xl', 'leading-none']"
+              v-motion
+              :initial="{ scale: 0.5, rotate: -45, opacity: 0 }"
+              :enter="{ scale: 1, rotate: 0, opacity: 1, transition: { type: 'spring', stiffness: 500, damping: 20 } }"
+            ></i>
           </button>
           <div class="flex items-center space-x-5">
             <a href="https://github.com/ryanwoong" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
@@ -116,7 +122,53 @@ const toggleMobileMenu = () => {
           </div>
         </div>
 
-        <ul :class="['space-y-2', { hidden: !isMobileMenuOpen, 'md:block': true }]">
+        <!-- Mobile animated menu (slide-down spring) -->
+        <Transition name="menu">
+          <ul v-if="isMobileMenuOpen" class="space-y-2 md:hidden overflow-hidden">
+            <li
+              v-for="(section, idx) in sections"
+              :key="'mobile-' + section"
+              v-motion
+              :initial="{ opacity: 0, x: -10 }"
+              :enter="{ opacity: 1, x: 0, transition: { delay: idx * 50, type: 'spring', stiffness: 400, damping: 28 } }"
+            >
+              <template v-if="section.toLowerCase() === 'resume'">
+                <RouterLink
+                  to="/resume"
+                  target="_blank"
+                  class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
+                >
+                  {{ section }}
+                  <span class="pi pi-external-link text-xs ml-1"></span>
+                </RouterLink>
+              </template>
+              <template v-else-if="section.toLowerCase() === 'blog'">
+                <a
+                  href="https://blog.ryanwong.ca"
+                  target="_blank"
+                  class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
+                >
+                  {{ section }}
+                </a>
+              </template>
+              <template v-else>
+                <a
+                  @click="scrollToSection(section); toggleMobileMenu();"
+                  :class="{
+                    'text-cyan-600': activeSection !== sectionIds[section],
+                    'text-black': activeSection === sectionIds[section],
+                  }"
+                  class="hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold cursor-pointer"
+                >
+                  {{ section }}
+                </a>
+              </template>
+            </li>
+          </ul>
+        </Transition>
+
+        <!-- Desktop always-visible menu -->
+        <ul class="hidden md:block space-y-2">
           <li
             v-for="section in sections"
             :key="section"
@@ -142,10 +194,7 @@ const toggleMobileMenu = () => {
             </template>
             <template v-else>
               <a
-                @click="
-                  scrollToSection(section);
-                  toggleMobileMenu();
-                "
+                @click="scrollToSection(section)"
                 :class="{
                   'text-cyan-600': activeSection !== sectionIds[section],
                   'text-black': activeSection === sectionIds[section],
@@ -197,3 +246,20 @@ const toggleMobileMenu = () => {
     </div>
   </nav>
 </template>
+
+<style scoped>
+/* Mobile menu container: spring-feel on open, ease-in on close */
+.menu-enter-active {
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: top center;
+}
+.menu-leave-active {
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  transform-origin: top center;
+}
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+  transform: scaleY(0.92) translateY(-8px);
+}
+</style>

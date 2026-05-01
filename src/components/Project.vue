@@ -7,6 +7,7 @@ const props = defineProps({
   description: String,
   link: String,
   skills: Array,
+  delay: { type: Number, default: 0 },
 });
 </script>
 
@@ -17,6 +18,9 @@ const props = defineProps({
     :href="link"
     target="_blank"
     class="block"
+    v-motion
+    :initial="{ opacity: 0, y: 32 }"
+    :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
   >
     <div
       :class="{
@@ -51,6 +55,9 @@ const props = defineProps({
     v-else
     class="border border-transparent rounded-lg mb-4 transition-all duration-300 max-w-3xl p-6 backdrop-blur-md shadow-lg"
     :style="{ backgroundColor: '#ffffff' }"
+    v-motion
+    :initial="{ opacity: 0, y: 32 }"
+    :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
   >
     <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
     <p class="text-black max-w-2xl mb-4">{{ description }}</p>

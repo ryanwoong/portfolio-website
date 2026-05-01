@@ -7,11 +7,17 @@ const props = defineProps({
   years: String,
   description: String,
   skills: Array,
+  delay: { type: Number, default: 0 },
 });
 </script>
 
 <template>
-  <div class="mb-6 max-w-3xl">
+  <div
+    class="mb-6 max-w-3xl"
+    v-motion
+    :initial="{ opacity: 0, y: 32 }"
+    :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
+  >
     <div
       class="p-6 border border-transparent rounded-lg backdrop-blur-md shadow-lg"
       :style="{

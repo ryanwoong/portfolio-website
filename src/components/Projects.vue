@@ -13,6 +13,7 @@ const props = defineProps({
     <Project
       v-for="(project, index) in projects"
       :key="index"
+      :delay="index * 80"
       :title="project.title"
       :img="project.img"
       :description="project.description"

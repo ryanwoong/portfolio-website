@@ -3,6 +3,7 @@ import Experiences from "@/components/Experiences.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import jsonData from "@/data.json";
 import Navbar from "@/components/Navbar.vue";
+import NotificationBanner from "@/components/NotificationBanner.vue";
 import Projects from "@/components/Projects.vue";
 import Skills from "@/components/Skills.vue";
 
@@ -85,6 +86,12 @@ onUnmounted(() => {
       class="flex-1 overflow-y-auto py-6 px-4 md:py-12 md:px-24 md:mt-20"
       ref="mainContent"
     >
+      <NotificationBanner
+        message="Check out my recent video on my project rymo! My local first Miro alternative."
+        link="https://www.youtube.com/watch?v=MgRekuT9zlw"
+        linkText="Watch now"
+      />
+
       <section
         id="about"
         class="p-6 mb-6 md:mb-4 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl"

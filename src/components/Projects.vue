@@ -18,6 +18,7 @@ const props = defineProps({
       :img="project.img"
       :description="project.description"
       :link="project.link"
+      :video_link="project.video_link"
       :skills="project.skills"
     />
   </div>

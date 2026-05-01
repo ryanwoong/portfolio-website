@@ -1,13 +1,25 @@
 <script setup>
-import { defineProps } from "vue";
+import { computed } from "vue";
 
 const props = defineProps({
   title: String,
   img: String,
   description: String,
   link: String,
+  video_link: { type: String, default: null },
   skills: Array,
   delay: { type: Number, default: 0 },
+});
+
+const youtubeEmbedUrl = computed(() => {
+  if (!props.video_link) return null;
+  try {
+    const url = new URL(props.video_link);
+    const videoId = url.searchParams.get("v");
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+  } catch {
+    return null;
+  }
 });
 </script>
 
@@ -37,6 +49,18 @@ const props = defineProps({
         {{ title }}
         <li class="pi pi-external-link text-xs ml-2"></li>
       </h3>
+      <div
+        v-if="youtubeEmbedUrl"
+        class="mb-4 rounded-lg overflow-hidden aspect-video"
+      >
+        <iframe
+          :src="youtubeEmbedUrl"
+          class="w-full h-full"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
+      </div>
       <p class="text-black max-w-2xl mb-4">{{ description }}</p>
       <div class="flex flex-wrap gap-2">
         <span
@@ -60,6 +84,18 @@ const props = defineProps({
     :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
   >
     <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
+    <div
+      v-if="youtubeEmbedUrl"
+      class="mb-4 rounded-lg overflow-hidden aspect-video"
+    >
+      <iframe
+        :src="youtubeEmbedUrl"
+        class="w-full h-full"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    </div>
     <p class="text-black max-w-2xl mb-4">{{ description }}</p>
     <div class="flex flex-wrap gap-2">
       <span

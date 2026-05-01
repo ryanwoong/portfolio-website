@@ -5,6 +5,7 @@
             "img": "",
             "description": "A local-first knowledge canvas inspired by Miro for building, arranging, and connecting notes, links, and media — fully offline. Uses a custom JSON encoder/decoder for portable, interoperable boards stored entirely on disk.",
             "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
+            "video_link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "skills": [
                 "Electron",
                 "TypeScript"
@@ -15,6 +16,7 @@
             "img": "",
             "description": "2nd place at Hack The Change 2024 among 50+ teams. Built a mental health app with an LLM that classifies user journals by tone and theme, plus a content moderation filter to keep the community safe.",
             "link": "https://devpost.com/software/petpals-9jb2s1",
+            "video_link": "https://www.youtube.com/watch?v=hSaXFfds34c",
             "skills": [
                 "Express",
                 "Firebase",

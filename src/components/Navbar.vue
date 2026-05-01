@@ -103,19 +103,35 @@ const toggleMobileMenu = () => {
             ></i>
           </button>
           <div class="flex items-center space-x-5">
-            <a href="https://github.com/ryanwoong" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+            <a
+              href="https://github.com/ryanwoong"
+              target="_blank"
+              class="text-black hover:text-cyan-600 transition-all duration-300"
+            >
               <span class="sr-only">GitHub</span>
               <i class="pi pi-github text-3xl leading-none"></i>
             </a>
-            <a href="https://twitter.com/ryxnwxng" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+            <a
+              href="https://twitter.com/ryxnwxng"
+              target="_blank"
+              class="text-black hover:text-cyan-600 transition-all duration-300"
+            >
               <span class="sr-only">Twitter</span>
               <i class="pi pi-twitter text-3xl leading-none"></i>
             </a>
-            <a href="https://www.linkedin.com/in/ryanwongyyc/" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+            <a
+              href="https://www.linkedin.com/in/ryanwongyyc/"
+              target="_blank"
+              class="text-black hover:text-cyan-600 transition-all duration-300"
+            >
               <span class="sr-only">LinkedIn</span>
               <i class="pi pi-linkedin text-3xl leading-none"></i>
             </a>
-            <a href="https://youtube.com/@ryanwoong" target="_blank" class="text-black hover:text-cyan-600 transition-all duration-300">
+            <a
+              href="https://youtube.com/@ryanwoong"
+              target="_blank"
+              class="text-black hover:text-cyan-600 transition-all duration-300"
+            >
               <span class="sr-only">YouTube</span>
               <i class="pi pi-youtube text-3xl leading-none"></i>
             </a>
@@ -124,7 +140,10 @@ const toggleMobileMenu = () => {
 
         <!-- Mobile animated menu (slide-down spring) -->
         <Transition name="menu">
-          <ul v-if="isMobileMenuOpen" class="space-y-2 md:hidden overflow-hidden">
+          <ul
+            v-if="isMobileMenuOpen"
+            class="space-y-2 md:hidden overflow-hidden"
+          >
             <li
               v-for="(section, idx) in sections"
               :key="'mobile-' + section"
@@ -153,7 +172,10 @@ const toggleMobileMenu = () => {
               </template>
               <template v-else>
                 <a
-                  @click="scrollToSection(section); toggleMobileMenu();"
+                  @click="
+                    scrollToSection(section);
+                    toggleMobileMenu();
+                  "
                   :class="{
                     'text-cyan-600': activeSection !== sectionIds[section],
                     'text-black': activeSection === sectionIds[section],
@@ -250,11 +272,15 @@ const toggleMobileMenu = () => {
 <style scoped>
 /* Mobile menu container: spring-feel on open, ease-in on close */
 .menu-enter-active {
-  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-origin: top center;
 }
 .menu-leave-active {
-  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  transition:
+    opacity 0.2s ease-in,
+    transform 0.2s ease-in;
   transform-origin: top center;
 }
 .menu-enter-from,

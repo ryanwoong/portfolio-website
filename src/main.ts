@@ -1,14 +1,14 @@
-import './assets/main.css'
-import 'primeicons/primeicons.css';
+import "./assets/main.css";
+import "primeicons/primeicons.css";
 
-import { createApp } from 'vue'
-import App from './App.vue';
-import router from './router'
-import { MotionPlugin } from '@vueuse/motion'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import { MotionPlugin } from "@vueuse/motion";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
-app.use(MotionPlugin)
+app.use(router);
+app.use(MotionPlugin);
 
-app.mount('#app')
+app.mount("#app");

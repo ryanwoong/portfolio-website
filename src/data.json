@@ -3,7 +3,7 @@
         {
             "title": "rymo",
             "img": "",
-            "description": "A local-first knowledge canvas inspired by Miro for building, arranging, and connecting notes, links, and media — fully offline. Uses a custom JSON encoder/decoder for portable, interoperable boards stored entirely on disk.",
+            "description": "A local-first knowledge canvas inspired by Miro for arranging and connecting notes, links, and media offline. Its portable JSON board format uses a custom encoder and decoder for durable interoperability, while on-disk storage gives users direct ownership of their data without cloud infrastructure.",
             "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "video_link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "skills": [
@@ -62,10 +62,25 @@
     ],
     "experiences": [
         {
+            "position": "Software Developer",
+            "company": "Vibe By California",
+            "years": "May 2026 — Present",
+            "location": "Part-Time Contract — Remote",
+            "description": "Independently architected and shipped a full-stack CRM and retail operations platform using React, FastAPI, and PostgreSQL, unifying analytics, marketing automation, and job orchestration. Integrated Dutchie, KayaPush, Resend, and Blackleaf APIs to synchronize customer, sales, labour, and messaging data and automate targeted SMS and email campaigns. Built C-suite analytics dashboards and granular RBAC with role-assigned permissions enforced across frontend routes and backend endpoints.",
+            "skills": [
+                "FastAPI",
+                "PostgreSQL",
+                "Python",
+                "React",
+                "TypeScript"
+            ]
+        },
+        {
             "position": "Software Developer Intern",
             "company": "Modular Solutions",
-            "years": "June 2025 — Present",
-            "description": "Worked on C#/.NET backend and React frontend, full stack development. Built a JavaScript rule sandbox that replaced a time-consuming process. Also built a Python + LLM knowledge base that accelerated rule development ~5x and enabled teams to share accurate technical docs with clients.",
+            "years": "Jan. 2025 — Present",
+            "location": "Calgary, AB",
+            "description": "Developed full-stack C#/.NET and React features across a DDD-based microservice architecture for insurance workflows. Built a JavaScript rule sandbox that saves about eight staff hours per week and a Python-and-LLM knowledge base that accelerated rule development roughly fivefold while improving technical documentation sharing.",
             "skills": [
                 ".NET",
                 "C#",
@@ -78,6 +93,7 @@
             "position": "Jr. Product Developer Intern",
             "company": "Modular Solutions",
             "years": "Jan. 2025 — June 2025",
+            "location": "Calgary, AB",
             "description": "Delivered 30+ complex insurance rules in the company's proprietary JavaScript rules engine, increasing client product development speed by ~50%. Also built an internal documentation website covering API guides and reference material.",
             "skills": [
                 ".NET",
@@ -89,7 +105,7 @@
         {
             "position": "Freelance Developer",
             "company": "Self Employed",
-            "years": "Jan. 2020 — Present",
+            "years": "Jan. 2020 — Jan. 2025",
             "description": "Developed custom websites, Discord bots, and scripts for 5+ clients serving 10,000+ users. Squashed 50+ critical bugs contributing to a 30% improvement in user satisfaction, and automated workflows reducing manual processing time by ~75%.",
             "skills": [
                 "CSS",
@@ -103,7 +119,8 @@
             "position": "Software Developer",
             "company": "Toysoft",
             "years": "July 2023 — Sept. 2024",
-            "description": "Architected a Kotlin mobile app GUI and built a Node.js backend to handle WebRTC peer-to-peer communication. Automated camera feed transmission to RTSP servers, eliminating 100% of manual media storage intervention.",
+            "location": "Calgary, AB",
+            "description": "Architected Kotlin mobile GUI and core application logic to create smoother, more responsive user interactions, and developed a Node.js service that coordinated WebRTC signaling for reliable, low-latency peer-to-peer communication.",
             "skills": [
                 "CSS",
                 "HTML",
@@ -126,31 +143,29 @@
         ],
         "frameworks": [
             ".NET",
+            "Electron",
             "Express.js",
-            "Flutter",
+            "FastAPI",
             "Node.js",
             "React",
             "Vue"
         ],
         "developerTools": [
-            "Android Studio",
             "AWS",
             "Azure",
             "Claude Code",
             "Docker",
             "Git/GitHub",
             "Linux",
-            "OpenAI Codex",
+            "OpenAI",
             "Ollama",
             "Unsloth",
-            "vLLM",
-            "Local LLMs"
+            "vLLM"
         ],
         "databases": [
             "Firebase",
             "MongoDB",
-            "MySQL",
-            "Postgres"
+            "PostgreSQL"
         ]
     }
 }

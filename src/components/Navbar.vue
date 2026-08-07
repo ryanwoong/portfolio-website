@@ -1,291 +1,160 @@
 <script setup>
-import { defineProps, ref, onMounted } from "vue";
-
-const props = defineProps({
-  activeSection: String,
-  sections: Array,
-});
-
-// Add section ID mapping to match the one in HomeView
-const sectionIds = {
-  ABOUT: "about",
-  EXPERIENCE: "experience",
-  "PROJECTS & HACKATHONS": "projects-hackathons",
-  RESUME: "resume",
-};
-
-const fullText = "Ryan Wong";
-const typingText = ref("");
-let isTyping = true;
-let typingIndex = 0;
-
-// Function to handle typing and deleting animation
-const typeEffect = () => {
-  const typingSpeed = 150; // Typing speed (milliseconds)
-  const deletingSpeed = 100; // Deleting speed (milliseconds)
-  const delayBetweenCycles = 1500; // Pause before typing starts again
-
-  if (isTyping) {
-    if (typingIndex < fullText.length) {
-      typingText.value += fullText[typingIndex];
-      typingIndex++;
-      setTimeout(typeEffect, typingSpeed);
-    } else {
-      isTyping = false;
-      setTimeout(typeEffect, delayBetweenCycles); // Pause before deleting
-    }
-  } else {
-    if (typingIndex > 0) {
-      typingText.value = typingText.value.slice(0, --typingIndex);
-      setTimeout(typeEffect, deletingSpeed);
-    } else {
-      isTyping = true;
-      setTimeout(typeEffect, delayBetweenCycles); // Pause before typing restarts
-    }
-  }
-};
-
-// Initialize the typing effect when the component mounts
-onMounted(() => {
-  typeEffect();
-});
-
-// Function to scroll to the specified section
-const scrollToSection = (section) => {
-  const sectionId = sectionIds[section] || section.toLowerCase();
-  const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
-// New ref for mobile menu state
-const isMobileMenuOpen = ref(false);
-
-// Function to toggle mobile menu
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+import { ref } from "vue";
+const props = defineProps({ activeSection: String, sections: Array, darkMode: Boolean });
+const emit = defineEmits(["toggle-theme"]);
+const open = ref(false);
+const sectionIds = { ABOUT: "about", EXPERIENCE: "experience", "PROJECTS & HACKATHONS": "projects-hackathons" };
+const scrollTo = (section) => {
+  const item = document.getElementById(sectionIds[section]);
+  item?.scrollIntoView({ behavior: "smooth" });
+  open.value = false;
 };
 </script>
-
 <template>
-  <nav class="w-100 p-12 md:flex md:flex-col md:mt-20 md:ml-[15%]">
-    <div class="sticky top-12 flex flex-col gap-4">
-      <!-- Section 1: Profile -->
-      <div class="bg-white rounded-lg p-4">
-        <img
-          src="@/assets/me.jpg"
-          alt="Ryan"
-          class="hidden md:block w-60 h-60 object-cover rounded-md mb-4 mx-auto"
-        />
-        <h1 class="flex text-4xl font-bold mb-2 text-black">
-          <span class="text-cyan-600 mr-1">></span>
-          {{ typingText }}
-        </h1>
-        <p class="text-lg mb-2 text-black">Fullstack Developer & Student</p>
-        <p class="text-sm text-black">I love bananas.</p>
+  <header class="lg:fixed lg:inset-y-0 lg:left-0 lg:z-10 lg:w-72 lg:p-6">
+    <div
+      class="mx-4 mt-4 rounded-lg p-5 lg:m-0 lg:flex lg:h-full lg:flex-col"
+      :style="{ background: 'var(--elevated)' }"
+    >
+      <div class="flex items-center justify-between lg:block">
+        <RouterLink
+          to="/"
+          class="focusable text-3xl font-extrabold tracking-[-.06em]"
+        >
+          RYAN
+          <br />
+          <span :style="{ color: 'var(--primary-strong)' }">WONG.</span>
+        </RouterLink>
+        <button
+          class="focusable rounded-md p-2 text-xl lg:hidden"
+          :style="{ background: 'var(--surface)' }"
+          @click="open = !open"
+          :aria-expanded="open"
+        >
+          <i :class="['pi', open ? 'pi-times' : 'pi-bars']"></i>
+        </button>
       </div>
-
-      <!-- Section 2: Menu -->
-      <div class="bg-white rounded-lg p-4">
-        <!-- Mobile toggle with inline socials -->
-        <div class="md:hidden flex items-center justify-between mb-4">
-          <button
-            @click="toggleMobileMenu"
-            class="flex items-center text-cyan-600 hover:text-cyan-600 transition-colors"
-          >
-            <i
-              :key="isMobileMenuOpen ? 'close' : 'open'"
-              :class="['pi', isMobileMenuOpen ? 'pi-times' : 'pi-bars', 'text-3xl', 'leading-none']"
-              v-motion
-              :initial="{ scale: 0.5, rotate: -45, opacity: 0 }"
-              :enter="{ scale: 1, rotate: 0, opacity: 1, transition: { type: 'spring', stiffness: 500, damping: 20 } }"
-            ></i>
-          </button>
-          <div class="flex items-center space-x-5">
-            <a
-              href="https://github.com/ryanwoong"
-              target="_blank"
-              class="text-black hover:text-cyan-600 transition-all duration-300"
-            >
-              <span class="sr-only">GitHub</span>
-              <i class="pi pi-github text-3xl leading-none"></i>
-            </a>
-            <a
-              href="https://twitter.com/ryxnwxng"
-              target="_blank"
-              class="text-black hover:text-cyan-600 transition-all duration-300"
-            >
-              <span class="sr-only">Twitter</span>
-              <i class="pi pi-twitter text-3xl leading-none"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ryanwongyyc/"
-              target="_blank"
-              class="text-black hover:text-cyan-600 transition-all duration-300"
-            >
-              <span class="sr-only">LinkedIn</span>
-              <i class="pi pi-linkedin text-3xl leading-none"></i>
-            </a>
-            <a
-              href="https://youtube.com/@ryanwoong"
-              target="_blank"
-              class="text-black hover:text-cyan-600 transition-all duration-300"
-            >
-              <span class="sr-only">YouTube</span>
-              <i class="pi pi-youtube text-3xl leading-none"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Mobile animated menu (slide-down spring) -->
-        <Transition name="menu">
-          <ul
-            v-if="isMobileMenuOpen"
-            class="space-y-2 md:hidden overflow-hidden"
-          >
-            <li
-              v-for="(section, idx) in sections"
-              :key="'mobile-' + section"
-              v-motion
-              :initial="{ opacity: 0, x: -10 }"
-              :enter="{ opacity: 1, x: 0, transition: { delay: idx * 50, type: 'spring', stiffness: 400, damping: 28 } }"
-            >
-              <template v-if="section.toLowerCase() === 'resume'">
-                <RouterLink
-                  to="/resume"
-                  target="_blank"
-                  class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
-                >
-                  {{ section }}
-                  <span class="pi pi-external-link text-xs ml-1"></span>
-                </RouterLink>
-              </template>
-              <template v-else-if="section.toLowerCase() === 'blog'">
-                <a
-                  href="https://blog.ryanwong.ca"
-                  target="_blank"
-                  class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
-                >
-                  {{ section }}
-                </a>
-              </template>
-              <template v-else>
-                <a
-                  @click="
-                    scrollToSection(section);
-                    toggleMobileMenu();
-                  "
-                  :class="{
-                    'text-cyan-600': activeSection !== sectionIds[section],
-                    'text-black': activeSection === sectionIds[section],
-                  }"
-                  class="hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold cursor-pointer"
-                >
-                  {{ section }}
-                </a>
-              </template>
-            </li>
-          </ul>
-        </Transition>
-
-        <!-- Desktop always-visible menu -->
-        <ul class="hidden md:block space-y-2">
+      <img
+        src="@/assets/me.jpg"
+        alt="Ryan Wong"
+        class="mt-6 hidden h-44 w-full rounded-md object-cover lg:block"
+      />
+      <p
+        class="mt-5 hidden text-sm leading-relaxed lg:block"
+        :style="{ color: 'var(--muted-text)' }"
+      >
+        Full-stack developer
+        <br />
+        and lifelong learner.
+      </p>
+      <nav :class="[open ? 'block' : 'hidden', 'mt-6 lg:block']">
+        <ul class="space-y-1">
           <li
             v-for="section in sections"
             :key="section"
           >
-            <template v-if="section.toLowerCase() === 'resume'">
-              <RouterLink
-                to="/resume"
-                target="_blank"
-                class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
-              >
-                {{ section }}
-                <span class="pi pi-external-link text-xs ml-1"></span>
-              </RouterLink>
-            </template>
-            <template v-else-if="section.toLowerCase() === 'blog'">
-              <a
-                href="https://blog.ryanwong.ca"
-                target="_blank"
-                class="text-cyan-600 hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold"
-              >
-                {{ section }}
-              </a>
-            </template>
-            <template v-else>
-              <a
-                @click="scrollToSection(section)"
-                :class="{
-                  'text-cyan-600': activeSection !== sectionIds[section],
-                  'text-black': activeSection === sectionIds[section],
-                }"
-                class="hover:text-cyan-600 transition-colors text-sm tracking-widest font-bold cursor-pointer"
-              >
-                {{ section }}
-              </a>
-            </template>
+            <RouterLink
+              v-if="section === 'RESUME'"
+              to="/resume"
+              target="_blank"
+              class="focusable nav-link"
+            >
+              {{ section }}
+              <i class="pi pi-external-link text-[10px]"></i>
+            </RouterLink>
+            <a
+              v-else-if="section === 'BLOG'"
+              href="https://blog.ryanwong.ca"
+              target="_blank"
+              class="focusable nav-link"
+            >
+              {{ section }}
+              <i class="pi pi-arrow-up-right text-[10px]"></i>
+            </a>
+            <button
+              v-else
+              class="focusable nav-link w-full text-left"
+              :class="{ active: activeSection === sectionIds[section] }"
+              @click="scrollTo(section)"
+            >
+              {{ section }}
+            </button>
           </li>
         </ul>
-      </div>
-
-      <!-- Section 3: Socials (desktop only) -->
-      <div class="hidden md:flex bg-white rounded-lg p-4 justify-center space-x-4">
+      </nav>
+      <div class="mt-7 flex items-center gap-4 lg:mt-auto">
+        <button
+          class="focusable flex h-10 w-10 items-center justify-center rounded-md"
+          :style="{ background: 'var(--surface)' }"
+          @click="emit('toggle-theme')"
+        >
+          <i :class="['pi', darkMode ? 'pi-sun' : 'pi-moon']"></i>
+          <span class="sr-only">Toggle theme</span>
+        </button>
         <a
           href="https://github.com/ryanwoong"
           target="_blank"
-          class="text-black hover:text-cyan-600 transition-all duration-300"
+          class="social-link focusable text-xl"
         >
+          <i class="pi pi-github"></i>
           <span class="sr-only">GitHub</span>
-          <i class="pi pi-github text-3xl"></i>
-        </a>
-        <a
-          href="https://twitter.com/ryxnwxng"
-          target="_blank"
-          class="text-black hover:text-cyan-600 transition-all duration-300"
-        >
-          <span class="sr-only">Twitter</span>
-          <i class="pi pi-twitter text-3xl"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/ryanwongyyc/"
           target="_blank"
-          class="text-black hover:text-cyan-600 transition-all duration-300"
+          class="social-link focusable text-xl"
         >
+          <i class="pi pi-linkedin"></i>
           <span class="sr-only">LinkedIn</span>
-          <i class="pi pi-linkedin text-3xl"></i>
+        </a>
+        <a
+          href="https://x.com/ryxnwxng"
+          target="_blank"
+          class="social-link focusable text-xl"
+        >
+          <i class="pi pi-twitter"></i>
+          <span class="sr-only">X</span>
         </a>
         <a
           href="https://youtube.com/@ryanwoong"
           target="_blank"
-          class="text-black hover:text-cyan-600 transition-all duration-300"
+          class="social-link focusable text-xl"
         >
+          <i class="pi pi-youtube"></i>
           <span class="sr-only">YouTube</span>
-          <i class="pi pi-youtube text-3xl"></i>
         </a>
       </div>
     </div>
-  </nav>
+  </header>
 </template>
-
 <style scoped>
-/* Mobile menu container: spring-feel on open, ease-in on close */
-.menu-enter-active {
+.nav-link {
+  display: block;
+  border-radius: 6px;
+  padding: 0.7rem 0.75rem;
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   transition:
-    opacity 0.35s ease,
-    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  transform-origin: top center;
+    background-color 200ms ease,
+    transform 200ms ease,
+    color 200ms ease;
 }
-.menu-leave-active {
+.nav-link:hover,
+.nav-link.active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  transform: translateX(4px);
+}
+.social-link {
   transition:
-    opacity 0.2s ease-in,
-    transform 0.2s ease-in;
-  transform-origin: top center;
+    color 180ms ease-in,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-.menu-enter-from,
-.menu-leave-to {
-  opacity: 0;
-  transform: scaleY(0.92) translateY(-8px);
+.social-link:hover,
+.social-link:focus-visible {
+  color: var(--primary-strong);
+  transform: translateY(-3px) scale(1.12);
 }
 </style>

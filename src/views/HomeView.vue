@@ -1,156 +1,108 @@
 <script setup>
-import Experiences from "@/components/Experiences.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 import jsonData from "@/data.json";
 import Navbar from "@/components/Navbar.vue";
 import NotificationBanner from "@/components/NotificationBanner.vue";
 import Projects from "@/components/Projects.vue";
+import Experiences from "@/components/Experiences.vue";
 import Skills from "@/components/Skills.vue";
 
-// Define sections with correct capitalization and ID mapping
 const sections = ["ABOUT", "EXPERIENCE", "PROJECTS & HACKATHONS", "BLOG", "RESUME"];
-// Map section titles to their IDs for accurate navigation
-const sectionIds = {
-  ABOUT: "about",
-  EXPERIENCE: "experience",
-  "PROJECTS & HACKATHONS": "projects-hackathons",
-  RESUME: "resume",
-};
-
+const sectionIds = { ABOUT: "about", EXPERIENCE: "experience", "PROJECTS & HACKATHONS": "projects-hackathons" };
 const { projects, experiences, skills } = jsonData;
-const { languages, frameworks, developerTools, databases } = skills;
-
 const activeSection = ref("about");
-const mainContent = ref(null);
+const darkMode = ref(false);
 
 const updateActiveSection = () => {
-  if (!mainContent.value) return;
+  // The document, rather than <main>, is the scrolling container. Use the
+  // sections' viewport positions so this also remains correct after layout
+  // changes (for example, responsive text wrapping).
+  const triggerLine = window.innerHeight * 0.3;
+  let currentSection = "about";
 
-  const scrollPosition = mainContent.value.scrollTop;
-  const windowHeight = window.innerHeight;
-  const offset = windowHeight * 0.3; // Adjust this value to change when the highlight triggers
-
-  // Create an array to hold section elements and their positions
-  const sectionPositions = sections
-    .map((section) => {
-      const id = sectionIds[section];
-      const element = document.getElementById(id);
-      if (!element) return { id, top: Infinity, bottom: Infinity };
-
-      return {
-        id,
-        top: element.offsetTop,
-        bottom: element.offsetTop + element.offsetHeight,
-      };
-    })
-    .filter((section) => section.top !== Infinity);
-
-  // Sort sections by position to ensure we select the correct active section
-  sectionPositions.sort((a, b) => a.top - b.top);
-
-  // Find the active section
-  for (const section of sectionPositions) {
-    if (scrollPosition >= section.top - offset && scrollPosition < section.bottom - offset) {
-      activeSection.value = section.id;
-      break;
-    }
+  for (const section of sections) {
+    const id = sectionIds[section];
+    const element = id && document.getElementById(id);
+    if (element && element.getBoundingClientRect().top <= triggerLine) currentSection = id;
   }
+
+  activeSection.value = currentSection;
 };
-
+const setTheme = (value) => {
+  darkMode.value = value;
+  document.documentElement.classList.toggle("dark", value);
+};
 onMounted(() => {
-  if (mainContent.value) {
-    mainContent.value.addEventListener("scroll", updateActiveSection);
-    // Initial call to set the active section on page load
-    setTimeout(updateActiveSection, 100); // Small delay to ensure DOM is fully rendered
-  }
+  // Clear any inline accent left by the retired palette picker, then use the design-system default.
+  document.documentElement.style.removeProperty("--primary");
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection);
+  updateActiveSection();
 });
-
 onUnmounted(() => {
-  if (mainContent.value) {
-    mainContent.value.removeEventListener("scroll", updateActiveSection);
-  }
+  window.removeEventListener("scroll", updateActiveSection);
+  window.removeEventListener("resize", updateActiveSection);
 });
 </script>
 
 <template>
   <div
-    class="md:flex md:h-screen text-black"
-    :style="{ backgroundColor: '#e6e6e9' }"
+    class="min-h-screen"
+    :style="{ background: 'var(--canvas)', color: 'var(--text)' }"
   >
     <Navbar
       :active-section="activeSection"
       :sections="sections"
+      :dark-mode="darkMode"
+      @toggle-theme="setTheme(!darkMode)"
     />
-
-    <main
-      class="flex-1 overflow-y-auto py-6 px-4 md:py-12 md:px-24 md:mt-20"
-      ref="mainContent"
-    >
+    <main class="mx-auto max-w-7xl px-4 pb-16 pt-5 sm:px-8 lg:pl-80 lg:pt-10">
       <NotificationBanner
-        message="Check out my recent video on my project rymo! My local first Miro alternative."
+        message="Check out my recent video on rymo — my local-first Miro alternative."
         link="https://www.youtube.com/watch?v=MgRekuT9zlw"
-        linkText="Watch now"
+        linkText="Watch it"
       />
-
       <section
         id="about"
-        class="p-6 mb-6 md:mb-4 rounded-lg group backdrop-blur-md shadow-lg max-w-3xl"
-        :style="{ backgroundColor: '#ffffff' }"
+        class="relative mb-14 overflow-hidden rounded-lg p-7 sm:p-10"
+        :style="{ background: 'var(--primary)', color: 'var(--primary-foreground)' }"
       >
-        <p class="mb-4 text-black">
-          Hey! My name is
-          <span class="text-cyan-600 font-bold">Ryan</span>
-          , a
-          <span class="text-cyan-600 font-bold">student</span>
-          and
-          <span class="text-cyan-600 font-bold">passionate developer</span>
-          with the desire to expand my knowledge and learn new things.
-        </p>
-        <p class="mb-4 text-black">
-          I'm currently a third year student attending the
-          <span class="text-cyan-600 font-bold">University of Calgary</span>
-          pursing a major in
-          <span class="text-cyan-600 font-bold">Computer Science</span>
-          and minoring in
-          <span class="text-cyan-600 font-bold">Management and Society</span>
-          .
-        </p>
-        <p class="mb-4 text-black">
-          As a child the world of technology always fascinated me, fast-forward to the present, and I now continue to strive to explore and learn everything I can. I have been fortunate enough to be able to own some amazing pieces of technology throughout my life which has allowed me to explore many different opportunites. From
-          <span class="text-cyan-600 font-bold">Raspberry Pi's</span>
-          ,
-          <span class="text-cyan-600 font-bold">VR Technology</span>
-          ,
-          <span class="text-cyan-600 font-bold">AI & Machine Learning</span>
-          , I have dove into the endless possibilities of technology, constantly expanding my technology stack.
-        </p>
+        <div class="absolute -right-12 -top-16 h-56 w-56 rounded-full border-[28px] border-white/30"></div>
+        <div class="absolute bottom-[-48px] right-1/4 h-28 w-28 rotate-45 bg-white/25"></div>
+        <div class="relative max-w-3xl">
+          <p class="eyebrow !text-current opacity-70">Hello, I’m Ryan</p>
+          <h1 class="mt-3 text-5xl font-extrabold leading-[.9] tracking-[-.05em] sm:text-7xl">
+            Developer.
+            <br />
+            Curious builder.
+          </h1>
+          <div class="mt-7 max-w-2xl space-y-4 text-lg leading-relaxed">
+            <p>A Computer Science student at the University of Calgary who turns curiosity into useful software. I build full-stack products, explore emerging technology, and enjoy making complex things feel simple.</p>
+            <p>I’m pursuing a minor in Management and Society, and I’m driven by the same curiosity that first drew me to technology.</p>
+            <p>From Raspberry Pis and VR to AI and machine learning, I enjoy exploring new tools, expanding my stack, and turning what I learn into practical software.</p>
+          </div>
+          <a
+            href="#projects-hackathons"
+            class="focusable mt-8 inline-flex rounded-md bg-[#172033] px-5 py-3 text-sm font-bold uppercase tracking-wider text-white transition-transform duration-200 hover:scale-105"
+          >
+            See selected work
+            <span class="ml-3">↓</span>
+          </a>
+        </div>
       </section>
-
       <section
         id="skills"
-        class="mb-6 md:mb-4"
+        class="mb-14"
       >
-        <Skills
-          :languages="languages"
-          :frameworks="frameworks"
-          :developerTools="developerTools"
-          :databases="databases"
-        />
+        <Skills v-bind="skills" />
       </section>
-
       <section
         id="experience"
-        class="mb-6 md:mb-4"
+        class="mb-14"
       >
         <Experiences :experiences="experiences" />
       </section>
-
-      <section
-        id="projects-hackathons"
-        class="mb-6 md:mb-4"
-      >
-        <Projects :projects="projects" />
-      </section>
+      <section id="projects-hackathons"><Projects :projects="projects" /></section>
     </main>
   </div>
 </template>

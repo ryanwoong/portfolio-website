@@ -1,25 +1,20 @@
 <script setup>
-import { defineProps } from "vue";
 import Project from "./Project.vue";
-
-const props = defineProps({
-  projects: Array,
-});
+defineProps({ projects: Array });
 </script>
-
 <template>
-  <div class="p-6 rounded-lg max-w-3xl">
-    <h2 class="text-3xl font-bold mb-8 text-black">Projects & Hackathons</h2>
-    <Project
-      v-for="(project, index) in projects"
-      :key="index"
-      :delay="index * 80"
-      :title="project.title"
-      :img="project.img"
-      :description="project.description"
-      :link="project.link"
-      :video_link="project.video_link"
-      :skills="project.skills"
-    />
+  <div>
+    <div class="mb-7">
+      <p class="eyebrow">What I'm working on</p>
+      <h2 class="section-heading mt-2">Selected work</h2>
+    </div>
+    <div class="grid gap-3 lg:grid-cols-2">
+      <Project
+        v-for="(project, index) in projects"
+        :key="project.title"
+        v-bind="project"
+        :featured="index === 0"
+      />
+    </div>
   </div>
 </template>

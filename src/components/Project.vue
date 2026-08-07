@@ -1,110 +1,58 @@
 <script setup>
 import { computed } from "vue";
-
-const props = defineProps({
-  title: String,
-  img: String,
-  description: String,
-  link: String,
-  video_link: { type: String, default: null },
-  skills: Array,
-  delay: { type: Number, default: 0 },
-});
-
+const props = defineProps({ title: String, description: String, link: String, video_link: String, skills: Array, featured: Boolean });
 const youtubeEmbedUrl = computed(() => {
   if (!props.video_link) return null;
   try {
     const url = new URL(props.video_link);
-    const videoId = url.searchParams.get("v");
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+    const id = url.searchParams.get("v");
+    return id ? `https://www.youtube.com/embed/${id}` : null;
   } catch {
     return null;
   }
 });
 </script>
-
 <template>
-  <!-- When there is a link, wrap the entire box in an <a> -->
   <a
-    v-if="link !== ''"
+    v-if="link"
     :href="link"
     target="_blank"
-    class="block"
-    v-motion
-    :initial="{ opacity: 0, y: 32 }"
-    :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
+    class="project-card focusable flat-card flat-card-interactive group flex flex-col"
+    :class="{ 'lg:col-span-2': featured }"
   >
-    <div
-      :class="{
-        'border border-transparent rounded-lg max-w-3xl p-6 transition-all duration-300 mb-4 backdrop-blur-md shadow-lg': true,
-        'hover:opacity-80 cursor-pointer': link !== '',
-      }"
-      :style="{
-        backgroundColor: '#ffffff',
-        transition: 'opacity 0.3s ease, box-shadow 0.3s ease',
-      }"
-    >
-      <!-- Title will also hover when the entire box is hovered -->
-      <h3 class="text-xl font-semibold mb-2 text-cyan-600 transition-all duration-300 group-hover:text-cyan-600 hover:text-cyan-600">
-        {{ title }}
-        <li class="pi pi-external-link text-xs ml-2"></li>
-      </h3>
-      <div
-        v-if="youtubeEmbedUrl"
-        class="mb-4 rounded-lg overflow-hidden aspect-video"
-      >
-        <iframe
-          :src="youtubeEmbedUrl"
-          class="w-full h-full"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        />
-      </div>
-      <p class="text-black max-w-2xl mb-4">{{ description }}</p>
-      <div class="flex flex-wrap gap-2">
-        <span
-          v-for="skill in skills"
-          :key="skill"
-          class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
-        >
-          {{ skill }}
-        </span>
-      </div>
+    <div class="flex items-start justify-between gap-4">
+      <p class="eyebrow">{{ featured ? "Featured project" : "Project" }}</p>
+      <i class="pi pi-arrow-up-right text-lg transition-transform duration-200 group-hover:scale-125"></i>
     </div>
-  </a>
-
-  <!-- If there's no link, just display the box without any <a> tag -->
-  <div
-    v-else
-    class="border border-transparent rounded-lg mb-4 transition-all duration-300 max-w-3xl p-6 backdrop-blur-md shadow-lg"
-    :style="{ backgroundColor: '#ffffff' }"
-    v-motion
-    :initial="{ opacity: 0, y: 32 }"
-    :visibleOnce="{ opacity: 1, y: 0, transition: { delay: props.delay, type: 'spring', stiffness: 220, damping: 24 } }"
-  >
-    <h3 class="text-xl font-semibold mb-2 text-cyan-600">{{ title }}</h3>
+    <h3 class="mt-6 text-2xl font-extrabold tracking-[-.03em]">{{ title }}</h3>
     <div
       v-if="youtubeEmbedUrl"
-      class="mb-4 rounded-lg overflow-hidden aspect-video"
+      class="mt-5 aspect-video overflow-hidden rounded-md bg-black"
     >
       <iframe
         :src="youtubeEmbedUrl"
-        class="w-full h-full"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        class="h-full w-full"
+        title="Project video"
         allowfullscreen
-      />
+      ></iframe>
     </div>
-    <p class="text-black max-w-2xl mb-4">{{ description }}</p>
-    <div class="flex flex-wrap gap-2">
-      <span
-        v-for="skill in skills"
-        :key="skill"
-        class="bg-cyan-600 text-gray-100 px-3 py-1 rounded-full text-sm"
-      >
-        {{ skill }}
-      </span>
-    </div>
-  </div>
+    <p class="mt-4 max-w-3xl leading-relaxed">{{ description }}</p>
+    <p class="technology-line">
+      <span>Utilized</span>
+      {{ skills.join(" · ") }}
+    </p>
+  </a>
+  <article
+    v-else
+    class="project-card flat-card flex flex-col"
+    :class="{ 'lg:col-span-2': featured }"
+  >
+    <p class="eyebrow">Project</p>
+    <h3 class="mt-4 text-2xl font-extrabold tracking-[-.03em]">{{ title }}</h3>
+    <p class="mt-4 leading-relaxed">{{ description }}</p>
+    <p class="technology-line">
+      <span>Utilized</span>
+      {{ skills.join(" · ") }}
+    </p>
+  </article>
 </template>

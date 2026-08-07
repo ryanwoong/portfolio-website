@@ -1,85 +1,33 @@
 <script setup>
-import { defineProps } from "vue";
 import Skill from "./Skill.vue";
-
-const props = defineProps({
-  languages: Array,
-  frameworks: Array,
-  developerTools: Array,
-  databases: Array,
-});
+defineProps({ languages: Array, frameworks: Array, developerTools: Array, databases: Array });
 </script>
-
 <template>
-  <div class="p-6 rounded-lg max-w-3xl">
-    <h2 class="text-3xl font-bold mb-8 text-black">Tech Stack</h2>
-
-    <div
-      v-motion
-      :initial="{ opacity: 0, y: 32 }"
-      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 0, type: 'spring', stiffness: 220, damping: 24 } }"
-      class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
-      :style="{ backgroundColor: '#ffffff' }"
-    >
-      <h2 class="text-lg font-bold mb-4 text-black">Languages</h2>
-      <div class="flex flex-wrap gap-2 overflow-x-auto">
-        <Skill
-          v-for="(language, index) in languages"
-          :key="'language-' + index"
-          :name="language"
-        />
-      </div>
+  <div>
+    <div class="mb-7">
+      <p class="eyebrow">Toolkit</p>
+      <h2 class="section-heading mt-2">Tech stack</h2>
     </div>
-
-    <div
-      v-motion
-      :initial="{ opacity: 0, y: 32 }"
-      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 80, type: 'spring', stiffness: 220, damping: 24 } }"
-      class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
-      :style="{ backgroundColor: '#ffffff' }"
-    >
-      <h2 class="text-lg font-bold mb-4 text-black">Frameworks</h2>
-      <div class="flex flex-wrap gap-2 overflow-x-auto">
-        <Skill
-          v-for="(fw, index) in frameworks"
-          :key="'fw-' + index"
-          :name="fw"
-        />
-      </div>
-    </div>
-
-    <div
-      v-motion
-      :initial="{ opacity: 0, y: 32 }"
-      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 160, type: 'spring', stiffness: 220, damping: 24 } }"
-      class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent mb-4"
-      :style="{ backgroundColor: '#ffffff' }"
-    >
-      <h2 class="text-lg font-bold mb-4 text-black">Developer Tools & Platforms</h2>
-      <div class="flex flex-wrap gap-2 overflow-x-auto">
-        <Skill
-          v-for="(tool, index) in developerTools"
-          :key="'tool-' + index"
-          :name="tool"
-        />
-      </div>
-    </div>
-
-    <div
-      v-motion
-      :initial="{ opacity: 0, y: 32 }"
-      :visibleOnce="{ opacity: 1, y: 0, transition: { delay: 240, type: 'spring', stiffness: 220, damping: 24 } }"
-      class="p-6 rounded-lg backdrop-blur-md shadow-lg border border-transparent"
-      :style="{ backgroundColor: '#ffffff' }"
-    >
-      <h2 class="text-lg font-bold mb-4 text-black">Databases & Backend Services</h2>
-      <div class="flex flex-wrap gap-2 overflow-x-auto">
-        <Skill
-          v-for="(db, index) in databases"
-          :key="'db-' + index"
-          :name="db"
-        />
-      </div>
+    <div class="grid gap-3 md:grid-cols-2">
+      <article
+        v-for="group in [
+          { title: 'Languages', items: languages },
+          { title: 'Frameworks', items: frameworks },
+          { title: 'Developer tools & platforms', items: developerTools },
+          { title: 'Databases & services', items: databases },
+        ]"
+        :key="group.title"
+        class="flat-card"
+      >
+        <p class="mb-5 text-lg font-bold tracking-[-.02em]">{{ group.title }}</p>
+        <div class="flex flex-wrap gap-2">
+          <Skill
+            v-for="item in group.items"
+            :key="item"
+            :name="item"
+          />
+        </div>
+      </article>
     </div>
   </div>
 </template>

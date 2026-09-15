@@ -26,6 +26,27 @@
                 "Node.js",
                 "React"
             ]
+        },
+        {
+            "title": "Blog Website",
+            "img": "",
+            "description": "A modern, responsive blog template built with Next.js, MDX, and Tailwind CSS. This template includes a dark mode toggle, tag-based navigation, collections, search functionality, and more. I use this currently for my own blog!",
+            "link": "https://github.com/rjwlabs/blog-template",
+            "skills": [
+                "TypeScript",
+                "Next.js"
+            ]
+        },
+        {
+            "title": "Portfolio Website",
+            "img": "",
+            "description": "This site was made to display my projects and a short about me! (you're looking right at it!).",
+            "link": "",
+            "skills": [
+                "TailwindCSS",
+                "Vue",
+                "TypeScript"
+            ]
         }
     ],
     "experiences": [

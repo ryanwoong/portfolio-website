@@ -3,18 +3,19 @@
         {
             "title": "rymo",
             "img": "",
-            "description": "A local-first knowledge canvas inspired by Miro for arranging and connecting notes, links, and media offline. Its portable JSON board format uses a custom encoder and decoder for durable interoperability, while on-disk storage gives users direct ownership of their data without cloud infrastructure.",
+            "description": "Engineered a local-first knowledge canvas inspired by Miro, supporting Kanban boards, Markdown, freehand drawing, PDF editing, notes, links, and more. Created a portable JSON-based board format with a custom encoder and decoder for data integrity and long-term interoperability. Built a mobile companion application that brings drawing and core workspace features to handheld devices, using the desktop app as the source of truth for secure real-time synchronization.",
             "link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "video_link": "https://www.youtube.com/watch?v=MgRekuT9zlw",
             "skills": [
                 "Electron",
-                "TypeScript"
+                "TypeScript",
+                "Kotlin Multiplatform"
             ]
         },
         {
             "title": "Hack The Change 2024 | 2nd Place",
             "img": "",
-            "description": "2nd place at Hack The Change 2024 among 50+ teams. Built a mental health app with an LLM that classifies user journals by tone and theme, plus a content moderation filter to keep the community safe.",
+            "description": "Shipped an LLM-powered mental-health game that classified journal entries by tone and theme, placing 2nd among 50+ teams. Built an LLM-powered content moderation pipeline to classify and filter harmful user-generated content.",
             "link": "https://devpost.com/software/petpals-9jb2s1",
             "video_link": "https://www.youtube.com/watch?v=hSaXFfds34c",
             "skills": [
@@ -25,39 +26,6 @@
                 "Node.js",
                 "React"
             ]
-        },
-        {
-            "title": "Blog Website",
-            "img": "",
-            "description": "A modern, responsive blog template built with Next.js, MDX, and Tailwind CSS. This template includes a dark mode toggle, tag-based navigation, collections, search functionality, and more. I use this currently for my own blog!",
-            "link": "https://github.com/rjwlabs/blog-template",
-            "skills": [
-                "TypeScript",
-                "Next.js"
-            ]
-        },
-        {
-            "title": "Social Discord Bot",
-            "img": "",
-            "description": "A bot made for Discord servers that listens for social media updates such as Tweets, going live on Twitch and Youtube posts. It can also post custom messages at a certain time of the day. There is also a voting system where users can react to the message to cast their votes.",
-            "link": "https://github.com/ryanwoong/Social-Discord-Bot",
-            "skills": [
-                "Discord.js",
-                "JavaScript",
-                "MongoDB",
-                "Node.js"
-            ]
-        },
-        {
-            "title": "Portfolio Website",
-            "img": "",
-            "description": "This site was made to display my projects and a short about me! (you're looking right at it!).",
-            "link": "",
-            "skills": [
-                "TailwindCSS",
-                "Vue",
-                "TypeScript"
-            ]
         }
     ],
     "experiences": [
@@ -66,7 +34,7 @@
             "company": "Vibe By California",
             "years": "May 2026 — Present",
             "location": "Part-Time Contract — Remote",
-            "description": "Independently architected and shipped a full-stack CRM and retail operations platform using React, FastAPI, and PostgreSQL, unifying analytics, marketing automation, and job orchestration. Integrated Dutchie, KayaPush, Resend, and Blackleaf APIs to synchronize customer, sales, labour, and messaging data and automate targeted SMS and email campaigns. Built C-suite analytics dashboards and granular RBAC with role-assigned permissions enforced across frontend routes and backend endpoints.",
+            "description": "Architected and shipped a full-stack CRM and retail operations platform using React, FastAPI, and PostgreSQL for 8 retail locations. Integrated Dutchie, KayaPush, Resend, and Blackleaf, reconciling 500K+ customer records and 900K+ transaction line items. Built C-suite analytics dashboards and platform-wide RBAC, enforcing scoped access across CRM, analytics, campaigns, and operations. Designed, provisioned, and configured a Linux VPS infrastructure stack, deploying Dockerized services including Nginx, Authentik, Nextcloud, Stalwart, Portainer, and other internal systems.",
             "skills": [
                 "FastAPI",
                 "PostgreSQL",
@@ -78,40 +46,14 @@
         {
             "position": "Software Developer Intern",
             "company": "Modular Solutions",
-            "years": "Jan. 2025 — Present",
+            "years": "Jan 2025 — Present",
             "location": "Calgary, AB",
-            "description": "Developed full-stack C#/.NET and React features across a DDD-based microservice architecture for insurance workflows. Built a JavaScript rule sandbox that saves about eight staff hours per week and a Python-and-LLM knowledge base that accelerated rule development roughly fivefold while improving technical documentation sharing.",
+            "description": "Built a JavaScript rule sandbox that replaced a manual workflow, saving 8 staff hours/week. Shipped 10+ production full-stack features in C#/.NET and React across a DDD-based microservice architecture. Built a Python + LLM rules knowledge base for internal teams and client-facing documentation, accelerating rule development 5x. Delivered 30+ production insurance rules in JavaScript, reducing average implementation time by 50%.",
             "skills": [
                 ".NET",
                 "C#",
-                "Javascript",
+                "JavaScript",
                 "Python",
-                "React"
-            ]
-        },
-        {
-            "position": "Jr. Product Developer Intern",
-            "company": "Modular Solutions",
-            "years": "Jan. 2025 — June 2025",
-            "location": "Calgary, AB",
-            "description": "Delivered 30+ complex insurance rules in the company's proprietary JavaScript rules engine, increasing client product development speed by ~50%. Also built an internal documentation website covering API guides and reference material.",
-            "skills": [
-                ".NET",
-                "C#",
-                "Javascript",
-                "React"
-            ]
-        },
-        {
-            "position": "Freelance Developer",
-            "company": "Self Employed",
-            "years": "Jan. 2020 — Jan. 2025",
-            "description": "Developed custom websites, Discord bots, and scripts for 5+ clients serving 10,000+ users. Squashed 50+ critical bugs contributing to a 30% improvement in user satisfaction, and automated workflows reducing manual processing time by ~75%.",
-            "skills": [
-                "CSS",
-                "Discord.js",
-                "HTML",
-                "Javascript",
                 "React"
             ]
         },
@@ -124,7 +66,7 @@
             "skills": [
                 "CSS",
                 "HTML",
-                "Javascript",
+                "JavaScript",
                 "Kotlin",
                 "Node.js"
             ]
@@ -136,7 +78,6 @@
             "HTML / CSS",
             "Java",
             "JavaScript",
-            "Kotlin",
             "Python",
             "SQL",
             "TypeScript"
@@ -151,21 +92,20 @@
             "Vue"
         ],
         "developerTools": [
-            "AWS",
-            "Azure",
             "Claude Code",
             "Docker",
             "Git/GitHub",
             "Linux",
             "OpenAI",
-            "Ollama",
             "Unsloth",
             "vLLM"
         ],
         "databases": [
-            "Firebase",
+            "PostgreSQL",
             "MongoDB",
-            "PostgreSQL"
+            "Firebase",
+            "AWS",
+            "Azure"
         ]
     }
 }

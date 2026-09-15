@@ -13,8 +13,8 @@ defineProps({ languages: Array, frameworks: Array, developerTools: Array, databa
         v-for="group in [
           { title: 'Languages', items: languages },
           { title: 'Frameworks', items: frameworks },
-          { title: 'Developer tools & platforms', items: developerTools },
-          { title: 'Databases & services', items: databases },
+          { title: 'Tools & AI', items: developerTools },
+          { title: 'Databases & cloud', items: databases },
         ]"
         :key="group.title"
         class="flat-card"

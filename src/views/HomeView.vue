@@ -70,16 +70,11 @@ onUnmounted(() => {
         <div class="absolute -right-12 -top-16 h-56 w-56 rounded-full border-[28px] border-white/30"></div>
         <div class="absolute bottom-[-48px] right-1/4 h-28 w-28 rotate-45 bg-white/25"></div>
         <div class="relative max-w-3xl">
-          <p class="eyebrow !text-current opacity-70">Hello, I’m Ryan</p>
-          <h1 class="mt-3 text-5xl font-extrabold leading-[.9] tracking-[-.05em] sm:text-7xl">
-            Developer.
-            <br />
-            Curious builder.
-          </h1>
+          <h1 class="mt-3 text-5xl font-extrabold leading-[.9] tracking-[-.05em] sm:text-7xl">Who I am</h1>
           <div class="mt-7 max-w-2xl space-y-4 text-lg leading-relaxed">
-            <p>A Computer Science student at the University of Calgary who turns curiosity into useful software. I build full-stack products, explore emerging technology, and enjoy making complex things feel simple.</p>
-            <p>I’m pursuing a minor in Management and Society, and I’m driven by the same curiosity that first drew me to technology.</p>
-            <p>From Raspberry Pis and VR to AI and machine learning, I enjoy exploring new tools, expanding my stack, and turning what I learn into practical software.</p>
+            <p>I'm Ryan. I study CS and business at the <span class="font-semibold">University of Calgary</span> and spend most my time coding or learning new things.</p>
+
+            <p>Lately that meant interning at <span class="font-semibold">Modular Solutions</span> and turning that internship into a part-time position during my studies. I have also been doing contract development for <span class="font-semibold">Vibe By California</span> developing custom software.</p>
           </div>
           <a
             href="#projects-hackathons"
